@@ -9,14 +9,7 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details </h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label for="name">Hero name: </label>
-    <!--  ngModel is angular two way binding syntax. -->
-    <input id="name" [(ngModel)]="selectedHero.name"
-           placeholder="name">
-  </div>
-</div>
+<!--  Angular property binding. Bind's heros-component's selectedHero property
+      on to hero-detail's hero property. Parent passes in value to child component.-->
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
