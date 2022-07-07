@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from "../hero";
-import {HEROES} from "../mock-heroes";
+import {HeroService} from "../hero.service";
 // Component decorator, imported from @angular/core libra
 // Provides metadata on our component.
 @Component({
@@ -12,15 +12,20 @@ import {HEROES} from "../mock-heroes";
 // like in the AppModule.
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
+  heroes: Hero[] = [];
   selectedHero?: Hero;
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
+  }
 
   onSelect(hero: Hero): void{
     this.selectedHero = hero;
   }
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
+    this.getHeroes()
   }
 
 }
