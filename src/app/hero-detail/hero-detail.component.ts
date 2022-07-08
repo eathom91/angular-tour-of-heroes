@@ -32,4 +32,7 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void{
+    // TODO
+  }
 }
